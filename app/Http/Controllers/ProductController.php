@@ -8,14 +8,29 @@ use App\Models\Product;
 class ProductController extends Controller
 {
     //商品一覧を表示する関数
-    public function index()
+    public function index(Request $request)
     {
-        //データベースからすべての商品を取得
-        $products = Product::all();
+        //クエリパラメータからカテゴリを取得
+        $category = $request->input('category');
 
-        //取得した商品をビューに渡して表示
-        return view('index',compact('products'));
+        //カテゴリが指定されていればフィルタ、なければ全件
+        if($category) {
+            $products = Product::where('category',$category)->get();
+        } else {
+            $products = Product::all();
+        }
+
+        //全カテゴリー一覧もビューに渡す（セレクトボックス用）
+        $categories = Product::select('category')->distinct()->get();
+
+        return view('index' ,[
+            'products' => $products,
+            'categories' => $categories,
+            'selectedCategory' => $category,
+        ]);
+
     }
+    
 
     //商品詳細を表示する
     public function show($id)

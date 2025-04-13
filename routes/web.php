@@ -5,10 +5,11 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\ProductController as AdminProductController;
 
 // トップページ
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 })->name('home');
 
 // 認証後ダッシュボード
@@ -26,7 +27,7 @@ Route::middleware('auth')->group(function () {
 // 商品表示
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/{id}', [ProductController::class, 'show']);
-
+Route::get('/category/{category}',[ProductController::class,'category'])->name('category.show');
 // カート操作
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
@@ -41,17 +42,14 @@ Route::get('/order/complete', function () {
 })->name('order.complete');
 
 
-// 管理画面（ダミービュー呼び出し）
-Route::get('/admin/products', function () {
-    return view('admin.products.index');
-});
-
-Route::get('/admin/products/create', function () {
-    return view('admin.products.create');
-});
-
-Route::get('/admin/products/{id}/edit', function ($id) {
-    return view('admin.products.edit', ['id' => $id]);
+// 管理画面
+Route::prefix('admin/products')->group(function() {
+    Route::get('/',[AdminProductController::class,'index'])->name('admin.products.index');
+    Route::get('/create',[AdminProductController::class,'create'])->name('admin.products.create');
+    Route::post('/store',[AdminProductController::class,'store'])->name('admin.products.store');
+    Route::get('/{id}/edit',[AdminProductController::class,'edit'])->name('admin.products.edit');
+    Route::put('/{id}/update',[AdminProductController::class,'update'])->name('admin.products.update');
+    Route::delete('/{id}/delete',[AdminProductController::class,'destroy'])->name('admin/products.destroy');
 });
 
 // 認証関連ルート（Breezeで生成されたもの）

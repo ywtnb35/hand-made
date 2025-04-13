@@ -2,8 +2,22 @@
 
 @section('content')
 <div class="container">
-    <div class="product-grid">
 
+    <!--セレクトボックス：カテゴリ絞り込み-->
+    <form method="GET" action="{{ route('products.index') }}">
+        <select name="category" onchange="this.form.submit()">
+            <option value="">すべてのカテゴリ</option>
+            @foreach ($categories as $cat)
+                <option value="{{ $cat->category }}" 
+                {{ (isset($selectedCategory) && $selectededCategory == $cat->category) ? 'selected' : '' }}
+                    {{ ucfirst($cat->category) }}
+                </option>
+            @endforeach
+        </select>
+    </form>
+
+    <!--商品一覧-->
+    <div class="product-grid">
         <h2>
             @if(isset($category))
                 {{ ucfirst($category) }}の商品一覧

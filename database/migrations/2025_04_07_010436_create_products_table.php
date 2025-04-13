@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('description')->nullable();//商品の説明
             $table->integer('price');//価格
             $table->string('image')->nullable();//画像ファイル名
+            $table->string('category');
             $table->timestamps();
         });
     }
