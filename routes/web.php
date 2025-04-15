@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\OrderHistoryController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 
 // トップページ
@@ -14,7 +15,7 @@ Route::get('/', function () {
 
 // 認証後ダッシュボード
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect('/');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // プロフィール関連（Laravel Breeze用）
@@ -40,6 +41,11 @@ Route::post('/order', [OrderController::class, 'store'])->name('order.store');
 Route::get('/order/complete', function () {
     return view('order.complete');
 })->name('order.complete');
+
+//注文履歴
+// Route::middleware('auth')->group(function() {
+    Route::get('/orders/history',[OrderHistoryController::class,'index'])->name('orders.history');
+//});
 
 
 // 管理画面
