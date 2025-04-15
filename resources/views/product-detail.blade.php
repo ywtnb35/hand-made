@@ -8,10 +8,10 @@
     <div class="product-detail">
         <!-- 左側：画像 -->
         <div class="product-images">
-            <img class="main-image" src="{{ asset('images/' .$product->image) }}" alt="{{ $product->name }}">
+            <img class="main-image" src="{{ asset('storage/' .$product->image) }}" alt="{{ $product->name }}">
             <div class="thumbnail-group">
-                <img class="thumbnail" src="{{ asset('images/' .$product->image) }}" alt="{{ $product->name }} サブ画像１">
-                <img class="thumbnail" src="{{ asset('images/' .$product->image) }}" alt="{{ $product->name }} サブ画像２">
+                <img class="thumbnail" src="{{ asset('storage/' .$product->image) }}" alt="{{ $product->name }} サブ画像１">
+                <img class="thumbnail" src="{{ asset('storage/' .$product->image) }}" alt="{{ $product->name }} サブ画像２">
             </div>
         </div>
 

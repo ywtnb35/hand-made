@@ -10,7 +10,7 @@
         <section class="cart-items">
             @forelse($products as $productId => $product)
                 <div class="cart-item">
-                    <img src="{{ asset($product['image']) }}" alt="{{ $product['name'] }}">
+                    <img src="{{ asset('storage/'.$product['image']) }}" alt="{{ $product['name'] }}">
                     <div class="item-details">
                         <p class="item-name">{{ $product['name'] }}</p>
                         <p class="item-price">¥{{ number_format( $product['price']) }}</p>

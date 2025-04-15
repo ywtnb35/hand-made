@@ -45,9 +45,13 @@ class ProductController extends Controller
     public function category($category)
     {
         $products = Product::where('category',$category)->get();
+        $categories = Product::select('category')->distinct()->get();
+        
         return view('index', [
             'products' => $products,
             'category' => $category,
+            'selectedCategory' => $category,
+            'categories' => $categories,
         ]);
     }
 }

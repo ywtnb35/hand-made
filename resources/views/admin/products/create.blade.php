@@ -16,7 +16,7 @@
     @endif
 
 
-    <form action="{{ route('admin.products.store') }}" method="POST">
+    <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="form-group">
@@ -30,8 +30,8 @@
         </div>
 
         <div class="form-group">
-            <label for="image">画像パス</label>
-            <input type="text" id="image" name="image" class="form-control" value="{{ old('image') }}">
+            <label for="image">画像</label>
+            <input type="file" name="image" class="form-control">
         </div>
 
         <div class="form-group">

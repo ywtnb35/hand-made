@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -27,12 +28,18 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'price' => 'required|numeric',
-            'image'=> 'required|string',
+            'image'=> 'required|image',
             'category' => 'required',
         ]);
 
+        $path = $request->file('image')->store('products','public');
         //保存処理
-        Product::create($request->only(['name', 'price', 'image', 'category']));
+        Product::create([
+            'name'=> $request->name,
+            'price'=> $request->price,
+            'image'=> $path,
+            'category'=> $request->category,
+        ]);
 
         //一覧にリダイレクト
         return redirect()->route('admin.products.index')->with('success','商品を登録しました。');
