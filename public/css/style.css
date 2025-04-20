@@ -84,6 +84,143 @@ body {
     color: #333;
 }
 
+/* ▼▼▼ ログインドロップダウン ▼▼▼ */
+.login-dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.login-toggle {
+    padding-right: 10px;
+}
+
+.login-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    min-width: 160px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.login-dropdown a {
+    display: block;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+}
+
+.login-dropdown a:hover {
+    background-color: #f0f0f0;
+}
+
+.login-dropdown-wrapper:hover .login-dropdown {
+    display: block;
+}
+
+/* ログアウトボタンをシンプルに */
+.logout-btn {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+/* =========================
+   ログインフォームスタイル
+   ========================= */
+   .login-box {
+    max-width: 420px;
+    margin: 60px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* ラベルとインプット配置 */
+.login-box label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+.login-box input[type="email"],
+.login-box input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+}
+
+.login-box input:focus {
+    border-color: #0077cc;
+    outline: none;
+}
+
+/* Remember me */
+.login-box input[type="checkbox"] {
+    transform: scale(1.2);
+    margin-right: 8px;
+}
+.login-box label[for="remember_me"] {
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* フォームアクション：リンクとボタン並べる */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* パスワードリンク */
+.forgot-link {
+    font-size: 14px;
+    color: #0077cc;
+    text-decoration: none;
+}
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+/* ログインボタン */
+.btn-login {
+    padding: 10px 24px;
+    font-size: 16px;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: #005fa3;
+}
+
 
 /*--------------*/
 /*フッターのスタイル*/
