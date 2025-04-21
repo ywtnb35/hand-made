@@ -31,7 +31,7 @@
 
         <div class="form-group">
             <label for="image">画像</label>
-            <input type="file" name="image" class="form-control">
+            <input type="file" name="images[]" id="images" class="form-control" multiple>
         </div>
 
         <div class="form-group">

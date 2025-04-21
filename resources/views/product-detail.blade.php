@@ -8,10 +8,13 @@
     <div class="product-detail">
         <!-- 左側：画像 -->
         <div class="product-images">
+            <!--メイン画像-->
             <img class="main-image" src="{{ asset('storage/' .$product->image) }}" alt="{{ $product->name }}">
+            <!--サムネイル画像をループ-->
             <div class="thumbnail-group">
-                <img class="thumbnail" src="{{ asset('storage/' .$product->image) }}" alt="{{ $product->name }} サブ画像１">
-                <img class="thumbnail" src="{{ asset('storage/' .$product->image) }}" alt="{{ $product->name }} サブ画像２">
+                @foreach ($product->images as $image)
+                    <img class="thumbnail" src="{{ asset('storage/' . $image->filename) }}" alt="{{ $product->name }}"  サムネイル>
+                @endforeach
             </div>
         </div>
 

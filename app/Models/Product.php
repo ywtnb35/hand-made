@@ -12,4 +12,9 @@ class Product extends Model
         'image',
         'category',
     ];
+
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class);
+    }
 }

@@ -25,21 +25,36 @@ class ProductController extends Controller
     //商品の保存
     public function store(Request $request)
     {
+        //入力値のバリデーション（画像は複数対応)
         $request->validate([
             'name' => 'required|string|max:255',
             'price' => 'required|numeric',
-            'image'=> 'required|image',
             'category' => 'required',
+            'images.*'=> 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $path = $request->file('image')->store('products','public');
-        //保存処理
-        Product::create([
-            'name'=> $request->name,
-            'price'=> $request->price,
-            'image'=> $path,
-            'category'=> $request->category,
+        //保存処理 まずは商品本体。画像はまだ。
+        $product = Product::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'category' => $request->category,
+            'image' => null,
         ]);
+
+        //画像がアップロードされていれば処理を実行
+        if($request->hasFile('images')){
+            foreach($request->file('images') as $index => $imageFile){   //アップロードされた画像を一枚ずつ処理
+                $path = $imageFile->store('products', 'public');  //storageに保存してパスを取得
+
+                $product->images()->create([   //画像をproduct_imagesテーブルに保存
+                    'filename' => $path
+                ]);
+
+                if($index === 0) {   //最初の１枚を代表画像としてproductsテーブルに設定
+                    $product->update(['image' => $path]);
+                }
+            }
+        }
 
         //一覧にリダイレクト
         return redirect()->route('admin.products.index')->with('success','商品を登録しました。');
