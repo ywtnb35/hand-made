@@ -4,7 +4,7 @@
 <div class="container">
     <h1>商品管理（一覧）</h1>
 
-    {{-- 登録完了メッセージ --}}
+    <!-- 登録完了メッセージ -->
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
@@ -23,6 +23,7 @@
             </tr>
         </thead>
         <tbody>
+            <!--すべての商品を１つずつループ-->
             @foreach ($products as $product)
             <tr>
                 <td>{{ $product->id }}</td>
@@ -32,6 +33,8 @@
                     <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}" style="width: 80px;">
                 </td>
                 <td>{{ ucfirst($product->category) }}</td>
+
+                <!--編集・削除の操作欄-->
                 <td>
                     <a href="{{ url('/admin/products/' . $product->id . '/edit') }}" class="btn btn-sm btn-warning">編集</a>
                     <form action="{{ url('/admin/products/' . $product->id . '/delete') }}" method="POST" style="display:inline;">

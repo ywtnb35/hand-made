@@ -10,23 +10,24 @@ class ProductController extends Controller
     //商品一覧を表示する関数
     public function index(Request $request)
     {
-        //クエリパラメータからカテゴリを取得
+        //クエリパラメータ(URLについてる?category=〇〇)からカテゴリを取得
         $category = $request->input('category');
 
-        //カテゴリが指定されていればフィルタ、なければ全件
+        //商品一覧を取得
         if($category) {
-            $products = Product::where('category',$category)->get();
-        } else {
-            $products = Product::all();
+            $products = Product::where('category',$category)->get();  //productsテーブルから[category]が指定値と一致する商品を取得
+        } else {  
+            $products = Product::all();  //カテゴリが未指定なら、productsテーブルからすべての商品を取得
         }
 
-        //全カテゴリー一覧もビューに渡す（セレクトボックス用）
+        //商品一覧に含まれるすべてのカテゴリ名を取得（セレクトボックス表示用）
+        //→productsテーブルの[category]カラムから重複を除いて取得
         $categories = Product::select('category')->distinct()->get();
 
-        return view('index' ,[
-            'products' => $products,
-            'categories' => $categories,
-            'selectedCategory' => $category,
+        return view('index' ,[            //index.blade.phpにデータを渡して表示
+            'products' => $products,      //-products:表示する商品一覧
+            'categories' => $categories,  //-categories:カテゴリ一覧
+            'selectedCategory' => $category, //-selectedCategory:現在選択中のカテゴリ名
         ]);
 
     }
@@ -42,16 +43,4 @@ class ProductController extends Controller
         return view('product-detail',compact('product'));
     }
 
-    public function category($category)
-    {
-        $products = Product::where('category',$category)->get();
-        $categories = Product::select('category')->distinct()->get();
-        
-        return view('index', [
-            'products' => $products,
-            'category' => $category,
-            'selectedCategory' => $category,
-            'categories' => $categories,
-        ]);
-    }
 }

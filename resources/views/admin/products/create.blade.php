@@ -4,7 +4,7 @@
 <div class="container">
     <h1>商品登録</h1>
 
-    <!--エラーメッセージ-->
+    <!--バリデーションエラーメッセージ-->
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -15,25 +15,30 @@
         </div>
     @endif
 
-
+    <!--商品登録フォーム:post送信、画像アップロード用にenctypeを指定-->
     <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
+        <!--商品名-->
         <div class="form-group">
             <label for="name">商品名</label>
             <input type="text" id="name" name="name" class="form-control" value="{{ old('name') }}">
         </div>
 
+        <!--価格入力-->
         <div class="form-group">
             <label for="price">価格</label>
             <input type="text" id="price" name="price" class="form-control" value="{{ old('price') }}">
         </div>
 
+        <!--複数画像のアップロード-->
         <div class="form-group">
             <label for="image">画像</label>
             <input type="file" name="images[]" id="images" class="form-control" multiple>
+            <!--name="images[]"で複数ファイル、multipleで複数選択可-->
         </div>
 
+        <!--カテゴリ選択(セレクトボックス)-->
         <div class="form-group">
             <label for="category">カテゴリ</label>
             <select id="category" name="category" class="form-control">
@@ -44,6 +49,7 @@
             </select>
         </div>
 
+    <!--登録ボタン-->
     <button type="submit" class="btn btn-warning">登録</button>
     </form>
 

@@ -3,14 +3,14 @@
 @section('content')
 
 <div class="product-detail-container">
-    <div class="breadcrumbs">ホーム / ショップ / {{ $product->name }}</div>
+    <div class="breadcrumbs">ホーム / ショップ / {{ $product->name }}</div> <!--現在のページ位置を表示-->
 
     <div class="product-detail">
         <!-- 左側：画像 -->
         <div class="product-images">
             <!--メイン画像-->
             <img class="main-image" src="{{ asset('storage/' .$product->image) }}" alt="{{ $product->name }}">
-            <!--サムネイル画像をループ-->
+            <!--サムネイル画像表示:ProductsControllerからリレーションで取得-->
             <div class="thumbnail-group">
                 @foreach ($product->images as $image)
                     <img class="thumbnail" src="{{ asset('storage/' . $image->filename) }}" alt="{{ $product->name }}"  サムネイル>
@@ -32,6 +32,7 @@
                 </div>
             </div>
 
+            <!--カートに追加するフォームpost送信-->
             <form action="{{ route('cart.add') }}" method="POST">
                 @csrf
                 <input type="hidden" name="product_id" value="{{ $product->id }}">

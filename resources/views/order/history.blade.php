@@ -8,7 +8,7 @@
 <div class="order-history-container">
 
     <h2>注文履歴</h2>
-
+    <!--注文データがあれば表示-->
     @forelse ($orders as $order)
         <div class="order-box">
             <div class="order-header">
@@ -20,12 +20,17 @@
                 <button class="order-btn">注文詳細・各種手続き</button>
             </div>
 
+            <!--注文内の商品一覧-->
             <div class="order-items">
                 @foreach ($order->orderItems as $item)
                     <div class="item-row">
+
+                        <!--商品画像-->
                         <div class="item-img">
                             <img src="{{ asset('storage/'.$item->product->image) }}" alt="{{ $item->product->name }}">
                         </div>
+
+                        <!--商品名・価格・数量などの情報-->
                         <div class="item-info">
                             <p class="product-name">{{ $item->product->name }}</p>
                             <p class="price">¥{{ number_format($item->price) }} 税込 / 数量：{{ $item->quantity }}</p>
@@ -39,6 +44,7 @@
                 <p class="total">支払い金額：¥{{ number_format($order->total_price) }}</p>
             </div>
         </div>
+    <!--注文が１件もなかった場合-->
     @empty
         <p>注文履歴がありません。</p>
     @endforelse

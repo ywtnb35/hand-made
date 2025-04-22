@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
 // 商品表示
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/{id}', [ProductController::class, 'show']);
-Route::get('/category/{category}',[ProductController::class,'category'])->name('category.show');
+
 // カート操作
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
