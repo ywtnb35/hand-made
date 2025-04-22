@@ -1,0 +1,87 @@
+/* ===========================
+   商品編集画面（edit.css）
+   =========================== */
+
+   body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100vh;
+} 
+
+.admin-main {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 60px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+.edit-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+/* タイトル */
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    border-bottom: 3px solid #007bff;
+    padding-bottom: 12px;
+    color: #333;
+    text-align: center;
+}
+
+/* フォームグループ */
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+input.form-control,
+select.form-control {
+    width: 100%;
+    padding: 16px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+/* ボタン */
+button.btn {
+    padding: 14px 28px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    background-color: #f0ad4e;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto 0;
+    transition: background-color 0.2s ease;
+}
+
+button.btn:hover {
+    background-color: #ec971f;
+}

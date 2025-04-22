@@ -1,60 +1,127 @@
 /* ===========================
-   管理者画面のCSS admin.css
+   管理画面CSS（大きく・見やすく）
    =========================== */
 
-/* ページ全体のスタイル */
+/* 全体背景とフォント */
 body {
     background-color: #f8f9fa;
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
 }
 
-/* コンテンツの中央寄せと幅調整 */
+/* コンテンツボックス */
 .container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
-    background: #fff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    border-radius: 8px;
+    max-width: 1400px; /* ←さらに大きく */
+    width: 95%;
+    margin: 60px auto;
+    padding: 60px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
+
+
+/* ヘッダー強化バージョン */
+.admin-header {
+    text-align: center;
+    margin-bottom: 50px;
+    background-color: #ffffff;
+    padding: 30px 20px;
+    border-bottom: 3px solid #007bff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* タイトル文字をさらに大きく */
+.admin-title {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* ナビゲーションリンクを大きく・強調 */
+.admin-nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.admin-nav a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.2s ease;
+}
+
+.admin-nav a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
 
 /* タイトル */
 h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 10px;
+    font-size: 30px;
+    margin-bottom: 30px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #007bff;
+    color: #333;
 }
 
 /* テーブル */
 .table {
     width: 100%;
     border-collapse: collapse;
+    font-size: 16px;
+    background-color: #fff;
+    table-layout: fixed;
 }
 
 .table th, .table td {
     border: 1px solid #ccc;
-    padding: 10px 15px;
+    padding: 16px 20px;
     text-align: left;
+    vertical-align: middle;
 }
 
 .table th {
     background-color: #e9ecef;
+    font-weight: 600;
+    color: #333;
+}
+
+.table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* 商品画像 */
+.table img {
+    width: 90px;  /* ←さらに大きく */
+    height: auto;
+    border-radius: 6px;
+    object-fit: cover;
 }
 
 /* ボタン */
 .btn {
-    padding: 6px 12px;
-    font-size: 14px;
-    border-radius: 4px;
+    padding: 10px 16px;
+    font-size: 15px;
+    border-radius: 6px;
     text-decoration: none;
     color: white;
-    margin-right: 5px;
+    margin-right: 8px;
     display: inline-block;
     cursor: pointer;
     border: none;
+    transition: background-color 0.2s ease;
 }
 
 .btn-warning {
@@ -73,48 +140,30 @@ h1 {
     background-color: #c9302c;
 }
 
-/* 小さめボタンサイズ */
 .btn-sm {
-    padding: 4px 8px;
-    font-size: 12px;
+    padding: 8px 12px;
+    font-size: 14px;
 }
 
-
-
-
+/* 入力フォーム */
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 label {
     display: block;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
 }
 
-input.form-control {
+input.form-control,
+select.form-control {
     width: 100%;
-    padding: 8px;
-    font-size: 14px;
+    padding: 12px;
+    font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 6px;
 }
 
 
-.form-group {
-    margin-bottom: 15px;
-}
 
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-input.form-control {
-    width: 100%;
-    padding: 8px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}

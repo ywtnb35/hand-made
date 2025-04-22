@@ -1,7 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
+<link rel="stylesheet" href="{{ asset('css/create.css') }}">
+<div class="admin-main">
     <h1>商品登録</h1>
 
     <!--バリデーションエラーメッセージ-->
