@@ -73,13 +73,20 @@ body {
 
 /*ログイン・カートの表示*/
 .user-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
     font-size: 24px;
     font-weight: 600;
     color: #333;
     white-space: nowrap; /*カート(0)が改行されないように*/
 }
 
-.user-icons a {
+.user-icons a,
+.user-icons button {
+    all: unset;
+    cursor: pointer;
+    font-weight: 600;
     text-decoration: none;
     color: #333;
 }
@@ -123,16 +130,13 @@ body {
     display: block;
 }
 
-/* ログアウトボタンをシンプルに */
-/* .logout-btn {
-    background: none;
-    border: none;
-    color: #333;
+ログアウトボタンをシンプルに */
+.logout-btn {
+    all: unset;
     font-size: 24px;
-    font-weight: 600;
+    font-weight: 600px;
     cursor: pointer;
-    padding: 0 10px;
-} */
+}
 
 
 
@@ -235,6 +239,25 @@ body {
     color: #333;
 }
 
+.auth-links {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* ログアウトとの間の余白 */
+}
+
+.mypage-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.mypage-link:hover {
+    background-color: #f0f0f0;
+}
 
 
 /*--------------*/

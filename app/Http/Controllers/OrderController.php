@@ -21,6 +21,7 @@ class OrderController extends Controller
 
         //Orderモデルをつかって ordersテーブルに注文データを登録
         $order = Order::create([
+            'user_id' => Auth()->id(),
             'name' => $request->name,   //フォームからの名前
             'email' => $request->email,  //メール
             'address' => $request->address,  //住所

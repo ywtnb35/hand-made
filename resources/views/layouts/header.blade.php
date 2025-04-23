@@ -16,10 +16,13 @@
         <div class="user-icons">
             @auth
                 <!--ログイン中の時-->
-                <form method="POST" action="{{ route('logout') }}" style="display:inline;">
-                    @csrf
-                    <button type="submit" class="logout-btn">ログアウト</button>
-                </form>
+                <div class="auth-links">
+                    <a href="{{ route('user.mypage') }}">マイページ</a>
+                    <form method="POST" action="{{ route('logout') }}" style="display:inline;">
+                        @csrf
+                        <button type="submit" class="logout-btn">ログアウト</button>
+                    </form>
+                </div>
             @else
                 <!--未ログインの時-->
                 <div class="login-dropdown-wrapper">
