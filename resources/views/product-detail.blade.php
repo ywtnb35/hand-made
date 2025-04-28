@@ -9,7 +9,7 @@
         <!-- 左側：画像 -->
         <div class="product-images">
             <!--メイン画像-->
-            <img class="main-image" src="{{ asset('storage/' .$product->image) }}" alt="{{ $product->name }}">
+            <img class="main-image" id="main-image" src="{{ asset('storage/' .$product->image) }}" alt="{{ $product->name }}">
             <!--サムネイル画像表示:ProductsControllerからリレーションで取得-->
             <div class="thumbnail-group">
                 @foreach ($product->images as $image)

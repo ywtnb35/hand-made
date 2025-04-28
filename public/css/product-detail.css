@@ -107,3 +107,42 @@
     border-top: 1px solid #ccc;
     padding: 18px;
 }
+
+/* 選択中のサムネイルの枠と影 */
+.active-thumbnail {
+    border: 2px solid #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* メイン画像のフェードアニメーション */
+#main-image.fade {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* フェードインのkeyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* サムネイルをレスポンシブに */
+.thumbnail-group {
+    flex-wrap: wrap;
+}
+
+.thumbnail {
+    width: 70px;
+}
+
+@media screen and (max-width: 600px) {
+    #main-image {
+        width: 90%;
+    }
+    .thumbnail {
+        width: 50px;
+    }
+}
