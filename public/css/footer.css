@@ -1,0 +1,54 @@
+/* ===========================
+   フッター
+   =========================== */
+   .site-footer {
+    background-color: #fff;
+    padding: 0;
+    border-top: 1px solid #ccc;
+    font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 60px;
+    max-width: 1800px;
+    margin: auto;
+}
+.footer-grid > div {
+    padding: 48px 36px;
+    border-right: 1px solid #ccc;
+}
+.footer-grid > div:last-child {
+    border-right: none;
+}
+
+.footer-grid h4 {
+    margin-bottom: 20px;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.footer-grid ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-grid li {
+    margin-bottom: 16px;
+    font-size: 24px;
+    font-weight: 600;
+}
+.footer-grid p {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 6px 0;
+}
+
+footer .copyright {
+    font-size: 18px;
+    text-align: center;
+    color: #555;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+}

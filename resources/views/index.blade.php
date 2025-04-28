@@ -3,43 +3,37 @@
 @section('content')
 <div class="container">
 
-    <!--セレクトボックス：カテゴリ絞り込み-->
-    <form method="GET" action="{{ route('products.index') }}">
-        <select name="category" onchange="this.form.submit()"> <!--カテゴリが選ばれたときに自動送信される-->
-        <option value="">すべてのカテゴリ</option>
-        
-        <!--コントローラーから渡されたカテゴリ一覧をループ-->
-        @foreach ($categories as $cat)
-            <option value="{{ $cat->category }}"
-            @if($selectedCategory === $cat->category) selected @endif>  <!--現在選択中のカテゴリと一致していればselectedをつける-->
-                {{ ucfirst($cat->category) }}  <!--カテゴリ名の先頭を大文字にして表示-->
-            </option>
+    <!-- ▼商品一覧タイトル -->
+    <h2 class="product-list-title">
+        @if($selectedCategory)
+            {{ ucfirst($selectedCategory) }}の商品一覧
+        @else
+            商品一覧
+        @endif
+    </h2>
+
+    <!-- ▼カテゴリボタン一覧 -->
+    <div class="category-buttons">
+        @foreach($categories as $cat)
+            <a href="{{ route('products.index', ['category' => $cat->category]) }}" 
+               class="category-button {{ request('category') == $cat->category ? 'active' : '' }}">
+                {{ ucfirst($cat->category) }}
+            </a>
         @endforeach
-</select>
+    </div>
 
-    </form>
-
-
-    <!--商品一覧-->
+    <!-- ▼商品一覧 -->
     <div class="product-grid">
-        <h2>
-            @if(isset($category))  <!--選択中のカテゴリがあるかで見出しを切り替え-->
-                {{ ucfirst($category) }}の商品一覧
-            @else
-                商品一覧
-            @endif
-        </h2>
-
-        @foreach($products as $product)  <!--商品一覧を１つずつループ表示-->
-            <div class="product-card"> 
+        @foreach($products as $product)
+            <div class="product-card">
                 <a href="{{ url('/products/' . $product->id) }}">
                     <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
-                    <div class="product-name product-name-list">{{ $product->name }}</div>
+                    <div class="product-name">{{ $product->name }}</div>
+                    <div class="product-price">¥{{ number_format($product->price) }}</div>
                 </a>
-                <div class="product-price">¥{{ number_format($product->price) }}</div>
             </div>
         @endforeach
+    </div>
 
-    </div> 
-</div> 
+</div>
 @endsection

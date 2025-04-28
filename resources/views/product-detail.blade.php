@@ -30,6 +30,23 @@
                     <span id="quantity-display">1</span>
                     <button type="button" id="quantity-plus">+</button>
                 </div>
+                @auth
+                    @if (Auth::user()->favorites->contains($product->id))
+                        <!-- 解除ボタン -->
+                        <form method="POST" action="{{ route('favorite.destroy', $product->id) }}">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit">♥ お気に入り解除</button>
+                        </form>
+                    @else
+                        <!-- 追加ボタン -->
+                        <form method="POST" action="{{ route('favorite.store', $product->id) }}">
+                            @csrf
+                            <button type="submit">♡ お気に入り</button>
+                        </form>
+                    @endif
+            @endauth
+
             </div>
 
             <!--カートに追加するフォームpost送信-->

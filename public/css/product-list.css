@@ -1,0 +1,94 @@
+/* ===========================
+   商品一覧ページ
+   =========================== */
+   .container {
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* 商品一覧タイトル */
+.product-list-title {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+.product-card:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.product-name {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    color: #555;
+    font-size: 0.9rem;
+}
+
+
+/* ===========================
+   カテゴリボタン
+   =========================== */
+
+   .category-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 36px;
+    margin: 60px 0;
+}
+
+.category-button {
+    display: inline-block;
+    padding: 20px 40px; 
+    background-color: #fff;
+    color: #333;
+    font-weight: 700;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 22px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.category-button:hover {
+    background-color: #333;
+    color: #fff;
+    transform: translateY(-5px); /* ホバー時にちょっと上に浮く */
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+.category-button.active {
+    background-color: #333;
+    color: #fff;
+}

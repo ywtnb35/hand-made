@@ -7,3 +7,47 @@
     box-shadow: 0 4px 16px rgba(0,0,0,0.1);
     font-family: 'Noto Sans JP', sans-serif;
 }
+
+.favorite-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.favorite-item {
+    border: 1px solid #ccc;
+    padding: 16px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.favorite-img {
+    width: 300px;
+    height: auto;
+    margin-top: 10px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.favorite-name {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 12px 0;
+}
+
+.unfavorite-btn {
+    background: none;
+    border: 1px solid #333;
+    padding: 6px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.unfavorite-btn:hover {
+    background-color: #f7f7f7;
+}

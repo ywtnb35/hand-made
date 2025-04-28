@@ -1,0 +1,109 @@
+/* ===========================
+   商品詳細ページ
+   =========================== */
+   .product-detail-container {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 30px;
+    font-family: sans-serif;
+}
+
+.breadcrumbs {
+    font-size: 1px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.product-detail {
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: flex-start;
+    padding: 16px 20px;
+}
+
+.product-images {
+    flex: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-image {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    border: 1px solid #ccc;
+}
+
+.thumbnail-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+}
+
+.product-info {
+    flex: 1;
+    font-size: 24px;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.product-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.product-quantity {
+    margin-bottom: 20px;
+}
+
+.quantity-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.quantity-box input {
+    width: 50px;
+    text-align: center;
+    padding: 4px;
+}
+
+.add-to-cart {
+    font-size: 24px;
+    padding: 20px 20px;
+    background: #000;
+    color: #fff;
+    border: none;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.product-description h3,
+.accordion h3 {
+    margin-top: 20px;
+    font-size: 18px;
+    border-top: 1px solid #ccc;
+    padding: 18px;
+}

@@ -1,0 +1,147 @@
+/* ===========================
+   カート画面
+   =========================== */
+   .cart-container {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+    color: #333;
+    font-family: 'Hiragino Kaku Gothic Pro', 'メイリオ', sans-serif;
+}
+
+.cart-container .cart-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+/* 左側：商品一覧 */
+.cart-container .cart-items {
+    flex: 2;
+}
+
+.cart-container .cart-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0;
+}
+
+.cart-container .cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 4px;
+}
+
+.cart-container .item-details {
+    flex: 1;
+}
+
+.cart-container .item-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.cart-container .item-price {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.cart-container .item-size {
+    font-size: 13px;
+    color: #888;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    width: fit-content;
+    margin-right: 20px;
+}
+
+.quantity-control button {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.quantity-control span {
+    display: inline-block;
+    min-width: 20px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.item-subtotal {
+    white-space: nowrap;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.remove {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #999;
+    cursor: pointer;
+}
+
+/* 右側：注文サマリー */
+.cart-container .order-summary {
+    flex: 0 0 360px;
+    padding: 24px;
+    font-size: 18px;
+}
+
+.cart-container .order-summary h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.summary-row,
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.summary-total {
+    font-weight: bold;
+    font-size: 16px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.checkout-btn {
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #333;
+    padding: 12px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.2s;
+}
+
+.checkout-btn:hover {
+    background: #f0f0f0;
+}
+
+.secure {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #777;
+    text-align: left;
+}

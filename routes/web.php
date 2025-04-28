@@ -7,6 +7,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\OrderHistoryController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 
 // トップページ
@@ -22,6 +23,11 @@ Route::get('/dashboard', function () {
 // プロフィール関連（Laravel Breeze用）
 Route::middleware('auth')->group(function () {
     Route::get('/mypage', [UserController::class,'mypage'])->name('user.mypage');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::post('/favorite/{product}',[FavoriteController::class,'store'])->name('favorite.store');
+    Route::delete('/favorite/{product}',[FavoriteController::class,'destroy'])->name('favorite.destroy');
 });
 
 // 商品表示

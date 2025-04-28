@@ -17,4 +17,14 @@ class Product extends Model  //商品モデル:productsテーブルと自動的�
     {
         return $this->hasMany(ProductImage::class);  //ProductsIMageモデルとリレーション(1商品に複数画像)
     }
+
+    public function favoredBy()
+    {
+        return $this->belongsToMany(User::class, 'favorites')->withTimestamps();
+    }
+
+    public function productImages()
+    {
+        return $this->hasMany(ProductImage::class);
+    }
 }

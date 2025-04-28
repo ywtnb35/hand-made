@@ -1,0 +1,13 @@
+/* ===========================
+   全体の基本設定
+   =========================== */
+   body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #fff;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
