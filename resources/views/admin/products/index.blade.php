@@ -32,7 +32,7 @@
                     <td>{{ $product->name }}</td>
                     <td>¥{{ number_format($product->price) }}</td>
                     <td>
-                        <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}" style="width: 80px;">
+                        <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" style="width: 80px;">
                     </td>
                     <td>{{ ucfirst($product->category) }}</td>
 

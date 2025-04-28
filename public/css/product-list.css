@@ -92,3 +92,13 @@
     background-color: #333;
     color: #fff;
 }
+
+/* ===========================
+   商品カード内の画像統一
+   =========================== */
+   .product-card img {
+    width: 100%;
+    aspect-ratio: 4/3; 
+    /* height: 300px; ← 高さを揃える！ */
+    object-fit: contain; /* 画像を中央でトリミング */
+}

@@ -46,14 +46,17 @@ class ProductController extends Controller
         //画像がアップロードされていれば処理を実行
         if($request->hasFile('images')){
             foreach($request->file('images') as $index => $imageFile){   //アップロードされた画像を一枚ずつ処理
-                $path = $imageFile->store('products', 'public');  //storage/public/productsに画像保存
+                //保存用のファイル名を自動生成
+                $filename = uniqid() . '.' . $imageFile->getClientOriginalExtension();
+
+                $savePath = $imageFile->storeAs('products', $filename, 'public');  //storage/public/productsに画像保存
 
                 $product->images()->create([   //画像をproduct_imagesテーブルに保存
-                    'filename' => $path
+                    'filename' => 'products/' . $filename,
                 ]);
 
                 if($index === 0) {   //最初の１枚を代表画像としてproductsテーブルに設定
-                    $product->update(['image' => $path]);
+                    $product->update(['image' => 'products/' . $filename,]);
                 }
             }
         }
