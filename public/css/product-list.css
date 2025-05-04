@@ -32,16 +32,23 @@
     text-align: center;
     padding: 1rem;
     position: relative;
-    transition: box-shadow 0.3s ease;
+    transition: transform 0.3s ease,box-shadow 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
 }
 .product-card:hover {
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transform: scale(1.03);
+    box-shadow: 0 12 24px rgba(0,0,0,0.15);
+    background-color: #f0f0f0;
+    border: 2px solid #aaa;
 }
 
 .product-card img {
     max-width: 100%;
     height: auto;
     margin-bottom: 1rem;
+    transition: transform 0.3s ease;
 }
 
 .product-name {
@@ -53,6 +60,16 @@
 .product-price {
     color: #555;
     font-size: 0.9rem;
+}
+
+.product-card a {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+.product-card a .product-name,
+.product-card a .product-price {
+    text-decoration: none !important;
 }
 
 

@@ -3,8 +3,6 @@
 @section('content')
 
 <div class="product-detail-container">
-    <div class="breadcrumbs">ホーム / ショップ / {{ $product->name }}</div> <!--現在のページ位置を表示-->
-
     <div class="product-detail">
         <!-- 左側：画像 -->
         <div class="product-images">
@@ -13,7 +11,7 @@
             <!--サムネイル画像表示:ProductsControllerからリレーションで取得-->
             <div class="thumbnail-group">
                 @foreach ($product->images as $image)
-                    <img class="thumbnail" src="{{ asset('storage/' . $image->filename) }}" alt="{{ $product->name }}"  サムネイル>
+                    <img class="thumbnail" src="{{ asset('storage/' . $image->filename) }}" alt="{{ $product->name }}" >
                 @endforeach
             </div>
         </div>

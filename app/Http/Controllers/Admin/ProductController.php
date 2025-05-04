@@ -39,6 +39,7 @@ class ProductController extends Controller
             'price' => 'required|numeric',  //価格:必須＆数値
             'category' => 'required',   //カテゴリ:必須
             'images.*'=> 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',  //画像:形式とサイズ制限
+            'description' => 'nullable|string',
         ]);
 
         //保存処理 まずは商品本体情報だけ保存。画像はまだ。
@@ -47,6 +48,7 @@ class ProductController extends Controller
             'price' => $request->price,
             'category' => $request->category,
             'image' => null,
+            'description' => $request->description,
         ]);
 
         //画像がアップロードされていれば処理を実行

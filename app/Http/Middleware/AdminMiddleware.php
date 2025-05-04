@@ -16,10 +16,18 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        //ログインしているユーザーのroleをチェック
-        if(Auth::check() && Auth::user()->role === 'admin'){
+        //未ログインならログインページへ
+        if(!Auth::check()) {
+            return redirect()->route('login');
+        }
+
+        //ログイン済かつadminユーザーならOK
+        if(Auth::user()->role === 'admin' ){
             return $next($request);
         }
-        return redirect()->route('mypage');
+
+        //一般ユーザーならマイページへ
+        return redirect()->route('user.mypage');
+
     }
 }

@@ -39,6 +39,11 @@
             <!--name="images[]"で複数ファイル、multipleで複数選択可-->
         </div>
 
+        <!--商品詳細-->
+        <div class="form-group">
+            <label for="description">商品紹介</label>
+            <textarea name="description" id="description" class="form-control" rows="4">{{ old('description') }}</textarea>
+
         <!--カテゴリ選択(セレクトボックス)-->
         <div class="form-group">
             <label for="category">カテゴリ</label>

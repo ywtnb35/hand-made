@@ -21,6 +21,7 @@
                     <th>価格</th>
                     <th>画像</th>
                     <th>カテゴリ</th>
+                    <th>商品紹介</th>
                     <th>操作</th>
                 </tr>
             </thead>
@@ -31,11 +32,10 @@
                     <td>{{ $product->id }}</td>
                     <td>{{ $product->name }}</td>
                     <td>¥{{ number_format($product->price) }}</td>
-                    <td>
-                        <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" style="width: 80px;">
+                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" style="width: 80px;">
                     </td>
                     <td>{{ ucfirst($product->category) }}</td>
-
+                    <td>{{ $product->description }}</td>
                     <!--編集・削除の操作欄-->
                     <td>
                         <a href="{{ url('/admin/products/' . $product->id . '/edit') }}" class="btn btn-sm btn-warning">編集</a>

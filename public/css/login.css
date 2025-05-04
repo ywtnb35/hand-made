@@ -1,0 +1,80 @@
+/* =======================
+   ログインフォームCSS
+   ======================= */
+
+   body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* 中央にボックス表示 */
+.login-box {
+    max-width: 420px;
+    margin: 60px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* ラベルとインプット配置 */
+.login-box label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+.login-box input[type="email"],
+.login-box input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+/* チェックボックス（保持） */
+.login-box input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.login-box .form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ログインボタン */
+.btn-login {
+    padding: 10px 20px;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-login:hover {
+    background-color: #333;
+}
+
+/* パスワード忘れリンク */
+.forgot-link {
+    font-size: 14px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
