@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
+
+    // public function __construct()
+    // {
+    //     $this->middleware('admin');
+    // }
+
     //一覧表示(管理画面用)
     public function index()
     {

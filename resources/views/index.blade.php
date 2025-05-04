@@ -14,6 +14,9 @@
 
     <!-- ▼カテゴリボタン一覧 -->
     <div class="category-buttons">
+        {{--すべて--}}
+        <a href="{{ route('products.index') }}" class="category-button {{request('category') ? '':'active' }}">すべて</a>
+        {{--カテゴリ別ボタン--}}
         @foreach($categories as $cat)
             <a href="{{ route('products.index', ['category' => $cat->category]) }}" 
                class="category-button {{ request('category') == $cat->category ? 'active' : '' }}">

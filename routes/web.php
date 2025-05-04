@@ -20,6 +20,10 @@ Route::get('/dashboard', function () {
     return redirect('/');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::middleware(['admin'])->group(function () {
+    Route::get('/admin/products', [AdminProductController::class,'index'])->name('admin.products.index');
+});
+
 // プロフィール関連（Laravel Breeze用）
 Route::middleware('auth')->group(function () {
     Route::get('/mypage', [UserController::class,'mypage'])->name('user.mypage');

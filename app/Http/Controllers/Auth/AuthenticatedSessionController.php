@@ -31,7 +31,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return $this->authenticated($request, Auth::user());
     }
 
     /**
@@ -46,5 +46,14 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+
+    public function authenticated(Request $request,$user)
+    {
+        if ($user->role === 'admin'){
+            return redirect()->route('admin.products.index');
+        } else {
+            return redirect()->route('mypage');
+        }
     }
 }
