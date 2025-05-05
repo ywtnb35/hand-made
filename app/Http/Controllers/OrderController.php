@@ -47,6 +47,15 @@ class OrderController extends Controller
     //注文フォームを表示する処理
     public function form()
     {
+        $cart = session('cart',[]);
+        $total = 0;
+
+        foreach ($cart as $item) {
+            $total += $item['price'] * $item['quantity'];
+        }
+
+        session(['cart_total' => $total]);
+
         return view('order.form'); 
     }
 

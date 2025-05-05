@@ -1,122 +1,104 @@
-/* public/css/order.css */
+/* ========================
+   注文フォーム画面 order.css
+=========================== */
 
-.order-history-container {
+/* コンテナ全体 */
+.order-form-container {
     max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
+    margin: 60px auto;
+    padding: 40px 30px;
+    background-color: #fdfdfd;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
-.order-history-container h2 {
-    font-size: 28px;
+/* タイトル */
+.order-title {
+    font-size: 24px;
+    font-weight: bold;
     margin-bottom: 30px;
+    border-left: 5px solid #333;
+    padding-left: 10px;
 }
 
-.order-card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 30px;
-    background: #f9f9f9;
+/* エラー表示 */
+.order-error {
+    background-color: #ffecec;
+    color: #d8000c;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border: 1px solid #d8000c;
+    border-radius: 4px;
+    font-size: 14px;
 }
 
-.order-card p {
-    margin-bottom: 10px;
-}
-
-.order-card ul {
+.order-error ul {
     list-style: none;
-    padding-left: 0;
+    padding: 0;
+    margin: 0;
 }
 
-.order-card li {
-    margin-bottom: 10px;
-}
-.order-box {
-    border: 1px solid #ddd;
-    padding: 20px;
-    margin-bottom: 40px;
-    background: #fff;
-    border-radius: 10px;
-}
-
-.order-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
+/* 入力フォーム */
+.order-form .form-group {
     margin-bottom: 20px;
 }
 
-.order-meta p {
-    margin: 0;
-    font-size: 14px;
-    color: #666;
+.order-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 15px;
 }
 
-.status {
+.order-form input[type="text"],
+.order-form input[type="email"],
+.order-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+/* 注文内容表示 */
+.order-subtitle {
+    margin-top: 40px;
+    font-size: 20px;
     font-weight: bold;
-    color: #007bbb;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
 }
 
-.order-btn {
-    background-color: #00a0e9;
-    color: white;
-    padding: 6px 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+.order-cart-list {
+    list-style: disc;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    font-size: 15px;
 }
 
-.order-items {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.item-row {
-    display: flex;
-    gap: 16px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-}
-
-.item-img img {
-    width: 80px;
-    height: auto;
-    object-fit: cover;
-}
-
-.item-info {
-    flex: 1;
-    background: none !important; /* ← 黒背景を打ち消す */
-    color: #333; /* 文字を黒系にして見やすく */
-    padding: 0;
-}
-
-.product-name {
+.order-total {
+    font-size: 16px;
     font-weight: bold;
-    margin-bottom: 4px;
-}
-
-.price {
-    font-size: 14px;
     color: #333;
+    margin-bottom: 30px;
 }
 
-.search-link {
-    font-size: 13px;
-    color: #00a0e9;
-    text-decoration: none;
+/* 送信ボタン */
+.order-submit-btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
 }
 
-.order-footer {
-    margin-top: 20px;
-    text-align: right;
-    font-weight: bold;
-}
-
-.total {
-    font-size: 18px;
-    margin-top: 5px;
+.order-submit-btn:hover {
+    background-color: #555;
 }
