@@ -31,10 +31,16 @@
             <input type="email" id="email" name="email" value="{{ old('email') }}" required>
         </div>
 
-        <!--住所-->
+        <!-- 郵便番号入力 -->
+        <div class="form-group">
+            <label for="zipcode">郵便番号</label>
+            <input type="text" name="zipcode" id="zipcode" requi placeholder="例: 1000001">
+        </div>
+
+        <!-- 住所入力（自動補完される） -->
         <div class="form-group">
             <label for="address">住所</label>
-            <textarea id="address" name="address" rows="4" required>{{ old('address') }}</textarea>
+            <input type="text" name="address" id="address">
         </div>
 
         <!--カートの内容を確認表示-->

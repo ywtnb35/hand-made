@@ -70,7 +70,7 @@
             </div>
 
 
-            <form action="{{ route('order.form') }}" method="GET">
+            <form action="{{ route('order.entry') }}" method="GET">
                 <button type="submit" class="checkout-btn">レジへ進む</button>
                 <p class="secure">🔒 安全なお支払い</p>
             </form>

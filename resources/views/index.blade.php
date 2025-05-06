@@ -2,7 +2,14 @@
 
 @section('content')
 <div class="container">
-
+        @php
+            $categoryLabels = [
+                'drink' => '飲料',
+                'wood' => '木工品',
+                'stamp' => '印鑑'
+            ];
+        @endphp
+        
     <!-- ▼商品一覧タイトル -->
     <h2 class="product-list-title">
         @if($selectedCategory)
@@ -14,13 +21,6 @@
 
     <!-- ▼カテゴリボタン一覧 -->
     <div class="category-buttons">
-        @php
-            $categoryLabels = [
-                'drink' => '飲料',
-                'wood' => '木工品',
-                'stamp' => '印鑑'
-            ];
-        @endphp
         
         {{--すべて--}}
         <a href="{{ route('products.index') }}" class="category-button {{request('category') ? '':'active' }}">すべて</a>

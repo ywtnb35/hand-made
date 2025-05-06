@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\OrderItem;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -21,7 +22,7 @@ class OrderController extends Controller
 
         //Orderモデルをつかって ordersテーブルに注文データを登録
         $order = Order::create([
-            'user_id' => Auth()->id(),
+            'user_id' => Auth::check() ? Auth::id() : null,
             'name' => $request->name,   //フォームからの名前
             'email' => $request->email,  //メール
             'address' => $request->address,  //住所

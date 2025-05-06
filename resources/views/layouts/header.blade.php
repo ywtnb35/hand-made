@@ -7,8 +7,8 @@
 
     <div class="nav-wrapper">
         <nav class="main-nav">
-            <a href="{{ route('home') }}">ホーム</a>
-            <a href="{{ route('products.index') }}">ショップ</a>
+            <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">ホーム</a>
+            <a href="{{ route('products.index') }}" class="{{ request()->routeIs('products.index') ? 'active' : '' }}">ショップ</a>
             <a href="#">About</a>
             <a href="#">お問い合わせ</a>
         </nav>

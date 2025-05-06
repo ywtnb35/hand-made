@@ -45,7 +45,11 @@ Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remov
 Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
 
 // 注文処理
-Route::get('/oder/form' , [OrderController::class,'form'])->name('order.form');
+Route::get('/order/entry', function () {
+    return view('order.entry_select');
+})->name('order.entry');
+
+Route::get('/order/form' , [OrderController::class,'form'])->name('order.form');
 Route::post('/order', [OrderController::class, 'store'])->name('order.store');
 Route::get('/order/complete', function () {
     return view('order.complete');

@@ -102,3 +102,90 @@
 .order-submit-btn:hover {
     background-color: #555;
 }
+
+
+/* 購入方法選択ページ用 */
+
+.entry-select-container {
+    max-width: 600px;
+    margin: 60px auto;
+    text-align: center;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.entry-select-container h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.entry-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.entry-btn {
+    display: inline-block;
+    width: 80%;
+    padding: 15px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.entry-btn:hover {
+    background-color: #555;
+}
+
+
+
+/* ================================
+   注文完了ページ（order.css）
+   ================================ */
+   .order-complete-container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.order-complete-container h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.order-complete-container p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.order-complete-container .back-to-shop {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.order-complete-container .back-to-shop:hover {
+    background-color: #0056b3;
+}
