@@ -25,13 +25,25 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        
-        $request->authenticate();
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        if(! Auth::attempt($request->only('email','password'),$request->filled('remember'))) {
+            return back()->withErrors([
+                'email' => 'メールまたはパスワードが正しくありません。',
+            ]);
+        }
 
         $request->session()->regenerate();
 
-
-        return $this->authenticated($request, Auth::user());
+        //カートに商品があればカートページへ、それ以外がマイページへ
+        if(session()->has('cart') && count(session('cart')) > 0) {
+            return redirect()->route('cart.show');
+        } else {
+            return redirect()->route('user.mypage');
+        }
     }
 
     /**
@@ -53,7 +65,7 @@ class AuthenticatedSessionController extends Controller
         if ($user->role === 'admin'){
             return redirect()->route('admin.products.index');
         } else {
-            return redirect()->route('mypage');
+            return redirect()->route('user.mypage');
         }
     }
 }

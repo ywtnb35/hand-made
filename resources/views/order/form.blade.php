@@ -34,14 +34,21 @@
         <!-- 郵便番号入力 -->
         <div class="form-group">
             <label for="zipcode">郵便番号</label>
-            <input type="text" name="zipcode" id="zipcode" requi placeholder="例: 1000001">
+            <input type="text" name="zipcode" id="zipcode" required pattern="\d{7}" placeholder="例: 1000001">
         </div>
 
         <!-- 住所入力（自動補完される） -->
         <div class="form-group">
-            <label for="address">住所</label>
-            <input type="text" name="address" id="address">
+            <label for="address">市区町村</label>
+            <input type="text" name="address" id="address" required>
         </div>
+
+        <!--番地-->
+        <div class="form-group">
+            <label for="address_detail">番地</label>
+            <input type="text" name="address_detail" id="address_detail" required>
+        </div>
+
 
         <!--カートの内容を確認表示-->
         <h3 class="order-subtitle">注文内容</h3>

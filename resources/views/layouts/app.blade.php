@@ -27,7 +27,7 @@
     @include('layouts.footer')
 
     <script src="{{ asset ('js/login-toggle.js')}}"></script>
-
+    <script src="{{ asset('js/zipcode.js') }}"></script>
 </body>
 
 </html>
