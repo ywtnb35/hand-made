@@ -16,7 +16,7 @@
     @endif
 
     <!--注文情報を送信するフォーム(post)-->
-    <form action="{{ route('order.store') }}" method="POST" class="order-form">
+    <form action="{{ route('order.confirm') }}" method="POST" class="order-form">
         @csrf
 
         <!--名前入力-->
@@ -71,7 +71,7 @@
         @endif
 
         <!--注文確定ボタン-->
-        <button type="submit" class="order-submit-btn">注文を確定する</button>
+        <button type="submit" class="order-submit-btn">注文確認へ</button>
     </form>
 </div>
 @endsection

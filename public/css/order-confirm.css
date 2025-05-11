@@ -1,0 +1,90 @@
+
+
+/* 注文確認画面のコンテナ */
+.order-confirm-container {
+    max-width: 720px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* タイトル */
+.order-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #333;
+    border-left: 6px solid #4CAF50;
+    padding-left: 10px;
+}
+
+/* ユーザー情報のボックス */
+.confirm-box {
+    margin-bottom: 30px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* ラベル付きの情報表示 */
+.confirm-box p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.confirm-box strong {
+    color: #444;
+}
+
+/* カートの内容リスト */
+.order-cart-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.order-cart-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+}
+
+/* 合計金額 */
+.order-total {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #d32f2f;
+}
+
+/* 戻るリンク */
+a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #2196F3;
+    text-decoration: underline;
+}
+
+/* 注文確定ボタン */
+.btn.btn-primary {
+    display: block;
+    margin: 30px auto 0 auto;
+    padding: 14px 32px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+
+}
+
+.btn.btn-primary:hover {
+    background-color: #555;
+}

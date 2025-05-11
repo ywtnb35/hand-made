@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="{{ asset('css/order.css') }}">
 <link rel="stylesheet" href="{{ asset('css/order-history.css') }}">
 <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+<link rel="stylesheet" href="{{ asset('css/order-confirm.css') }}">
 
   @stack('styles')
 </head>

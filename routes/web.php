@@ -44,11 +44,11 @@ Route::post('/cart/update', [CartController::class, 'update'])->name('cart.updat
 Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
 Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
 
-// 注文処理
-Route::get('/order/entry', function () {
-    return view('order.entry_select');
-})->name('order.entry');
+//注文確認ページ
+Route::post('/order/confirm',[OrderController::class, 'confirm'])->name('order.confirm');
 
+// 注文処理
+Route::get('/order/entry', function () { return view('order.entry_select');})->name('order.entry');
 Route::get('/order/form' , [OrderController::class,'form'])->name('order.form');
 Route::post('/order', [OrderController::class, 'store'])->name('order.store');
 Route::get('/order/complete', function () {
