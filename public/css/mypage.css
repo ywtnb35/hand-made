@@ -52,12 +52,12 @@
     background-color: #f7f7f7;
 }
 
-.favorite-list {
+/* .favorite-list {
     display: flex;
-    flex-direction: column; /* ←ここ！縦並びにする */
+    flex-direction: column;
     gap: 20px;
     margin-top: 20px;
-}
+} */
 
 .favorite-item {
     background: #fff;
@@ -83,4 +83,29 @@
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 10px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .favorite-list {
+        grid-template-columns: 1fr;
+    }
+
+    .favorite-img {
+        width: 100%;
+        height: auto;
+    }
+
+    .favorite-item {
+        padding: 16px;
+    }
+
+    .favorite-name {
+        font-size: 18px;
+    }
+
+    .unfavorite-btn {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
 }

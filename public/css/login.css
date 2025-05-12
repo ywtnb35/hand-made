@@ -78,3 +78,37 @@
 .forgot-link:hover {
     text-decoration: underline;
 }
+
+
+@media screen and (max-width: 600px) {
+    .login-box {
+        margin: 40px 12px;
+        padding: 20px;
+        max-width: 100%; /* 横幅いっぱい */
+    }
+
+    .login-box label {
+        font-size: 14px;
+    }
+
+    .login-box input[type="email"],
+    .login-box input[type="password"] {
+        font-size: 15px;
+        padding: 10px 12px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .btn-login {
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .forgot-link {
+        font-size: 13px;
+    }
+}

@@ -52,3 +52,64 @@ footer .copyright {
     padding-top: 20px;
     border-top: 1px solid #ccc;
 }
+
+
+/* タブレット対応（1024px以下） */
+@media screen and (max-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2列に */
+        gap: 40px;
+    }
+
+    .footer-grid > div {
+        padding: 32px 24px;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .footer-grid > div:nth-child(2) {
+        border-right: none;
+    }
+
+    .footer-grid > div:last-child {
+        border-bottom: none;
+    }
+
+    .footer-grid h4 {
+        font-size: 22px;
+    }
+
+    .footer-grid li,
+    .footer-grid p {
+        font-size: 20px;
+    }
+}
+
+/* スマホ対応（600px以下） */
+@media screen and (max-width: 600px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* 1列に */
+        gap: 24px;
+    }
+
+    .footer-grid > div {
+        padding: 24px 16px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .footer-grid h4 {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    .footer-grid li,
+    .footer-grid p {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    footer .copyright {
+        font-size: 16px;
+        padding-top: 16px;
+    }
+}

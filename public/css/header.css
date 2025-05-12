@@ -113,3 +113,64 @@
     font-weight: 600;
     cursor: pointer;
 }
+
+
+/* タブレット対応（1024px以下） */
+@media screen and (max-width: 1024px) {
+    .nav-wrapper {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .main-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+        font-size: 20px;
+        margin-top: 12px;
+    }
+
+    .user-icons {
+        font-size: 20px;
+        gap: 16px;
+        margin-top: 12px;
+    }
+
+    .logo img {
+        width: 240px;
+        height: auto;
+    }
+}
+
+/* スマホ対応（600px以下） */
+@media screen and (max-width: 600px) {
+    .nav-wrapper {
+        padding: 16px 12px;
+    }
+
+    .main-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        font-size: 18px;
+    }
+
+    .user-icons {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        font-size: 18px;
+    }
+
+    .logo img {
+        width: 180px;
+        height: auto;
+    }
+
+    .login-dropdown {
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+    }
+}

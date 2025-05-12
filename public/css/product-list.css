@@ -119,3 +119,65 @@
     /* height: 300px; ← 高さを揃える！ */
     object-fit: contain; /* 画像を中央でトリミング */
 }
+
+/* =========================== */
+/* レスポンシブ対応追加        */
+/* =========================== */
+
+/* タブレット（画面幅 1024px以下） */
+@media screen and (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2列にする */
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .product-list-title {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .category-button {
+        font-size: 20px;
+        padding: 16px 32px;
+    }
+}
+
+/* スマホ（画面幅 600px以下） */
+@media screen and (max-width: 600px) {
+    .product-grid {
+        grid-template-columns: 1fr; /* 1列にする */
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .product-list-title {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .category-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .category-button {
+        width: 100%;
+        max-width: 320px;
+        font-size: 18px;
+        padding: 14px 24px;
+    }
+
+    .product-card {
+        padding: 0.8rem;
+    }
+
+    .product-name {
+        font-size: 0.95rem;
+    }
+
+    .product-price {
+        font-size: 0.85rem;
+    }
+}

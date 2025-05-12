@@ -88,3 +88,45 @@ a {
 .btn.btn-primary:hover {
     background-color: #555;
 }
+
+
+@media screen and (max-width: 768px) {
+    .order-confirm-container {
+        padding: 24px;
+        margin: 30px 12px;
+    }
+
+    .order-title {
+        font-size: 20px;
+        padding-left: 8px;
+    }
+
+    .confirm-box p,
+    .order-cart-list li {
+        font-size: 15px;
+    }
+
+    .order-total {
+        font-size: 16px;
+    }
+
+    .btn.btn-primary {
+        width: 100%;
+        font-size: 15px;
+        padding: 12px 0;
+    }
+
+    a {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .order-title {
+        font-size: 18px;
+    }
+
+    .btn.btn-primary {
+        font-size: 14px;
+    }
+}

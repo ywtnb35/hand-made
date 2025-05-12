@@ -181,11 +181,107 @@
     font-size: 16px;
     font-weight: 600;
     color: #fff;
-    background-color: #007bff;
+    background-color: #333;
     text-decoration: none;
     border-radius: 6px;
+    width: auto;
+    margin: 0 auto;
 }
 
 .order-complete-container .back-to-shop:hover {
     background-color: #0056b3;
+}
+
+
+@media screen and (max-width: 768px) {
+    /* 共通：コンテナ調整 */
+    .order-form-container,
+    .entry-select-container,
+    .order-complete-container {
+        margin: 30px 12px;
+        padding: 24px;
+    }
+
+    .order-title,
+    .entry-select-container h2,
+    .order-complete-container h1 {
+        font-size: 20px;
+        padding-left: 6px;
+    }
+
+    .order-error {
+        font-size: 13px;
+        padding: 8px 16px;
+    }
+
+    .order-form label {
+        font-size: 14px;
+    }
+
+    .order-form input[type="text"],
+    .order-form input[type="email"],
+    .order-form textarea {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .order-subtitle {
+        font-size: 18px;
+    }
+
+    .order-cart-list {
+        font-size: 14px;
+    }
+
+    .order-total {
+        font-size: 15px;
+    }
+
+    .order-submit-btn {
+        font-size: 15px;
+        padding: 12px;
+    }
+
+    .entry-btn {
+        font-size: 16px;
+        padding: 12px 16px;
+        width: 100%;
+    }
+
+    .order-complete-container p {
+        font-size: 16px;
+    }
+
+    .back-to-shop {
+        font-size: 15px;
+        padding: 12px;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .order-title,
+    .entry-select-container h2,
+    .order-complete-container h1 {
+        font-size: 18px;
+    }
+
+    .order-complete-container p {
+        font-size: 15px;
+    }
+
+    .order-submit-btn {
+        font-size: 14px;
+    }
+
+    .entry-btn {
+        font-size: 15px;
+    }
+
+    .back-to-shop {
+        font-size: 14px;
+        padding: 10px;
+    }
 }
