@@ -4,6 +4,12 @@
 <div class="order-form-container">
     <h2 class="order-title">ご注文情報の入力</h2>
 
+    @if (session('error'))
+        <div class="flash-message warning">
+            ⚠ {{ session('warning') }}
+        </div>
+    @endif
+
     @if ($errors->any())
         <div class="order-error">
             <ul>

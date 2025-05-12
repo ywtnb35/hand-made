@@ -110,6 +110,27 @@
     color: #fff;
 }
 
+/* ================================
+   フラッシュメッセージのスタイル
+   ================================ */
+.flash-message {
+    padding: 16px 24px;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    border: 1px solid transparent;
+    max-width: 100%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.flash-message.warning {
+    background-color: #fff8e1;
+    color: #b26a00;
+    border-color: #ffe082;
+}
+
+
 /* ===========================
    商品カード内の画像統一
    =========================== */

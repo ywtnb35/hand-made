@@ -14,8 +14,13 @@ class OrderController extends Controller
     public function form()
     {
         $cart = session('cart',[]);
-        $total = 0;
+        
+        //カートが空なら商品一覧へリダイレクト
+        if (empty($cart)) {
+            return redirect()->route('products.index')->with('warning' , 'カートに商品がありません。');
+        }
 
+        $total = 0;
         foreach ($cart as $item) {
             $total += $item['price'] * $item['quantity'];
         }
@@ -25,9 +30,15 @@ class OrderController extends Controller
         return view('order.form'); 
     }
 
-    //注文確認画面を表示するメソッド
+    //注文確認画面を表示するメソッド(フォームを送信した後)
     public function confirm(Request $request)
     {
+        $cart = session('cart',[]);
+
+        if (empty($cart)) {
+            return redirect()->route('order.form')->with('warning','カートに商品がありません。');
+        }
+
         //バリデーション
         $validated = $request->validate([
             'name' => 'required|string|max:255',
@@ -54,8 +65,8 @@ class OrderController extends Controller
             $cart = session('cart',[]);
             $total = session('cart_total',0);
 
-        if (!$input) {
-            return redirect()->route('order.form')->with('error','もう一度、ご注文の確認を行ってください。');
+        if (!$input || empty($cart)) {
+            return redirect()->route('order.form')->with('error','カートが空です。');
         }
 
         //注文情報をorders テーブルに登録
