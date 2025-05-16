@@ -9,6 +9,7 @@ use App\Http\Controllers\OrderHistoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
+use Illuminate\http\Request;
 
 // トップページ
 Route::get('/', function () {
@@ -52,10 +53,8 @@ Route::get('/order/back',[OrderController::class, 'backToForm'])->name('order.ba
 Route::get('/order/entry', function () { return view('order.entry_select');})->name('order.entry');
 Route::get('/order/form' , [OrderController::class,'form'])->name('order.form');
 Route::post('/order', [OrderController::class, 'store'])->name('order.store');
-Route::get('/order/complete', function (\Illuminate\Http\Request $request) {
-    $orderId = $request->order_id;
-    return view('order.complete', ['order_id' => $orderId]);
-})->name('order.complete');
+Route::get('/order/complete/{order_id}', [OrderController::class, 'complete'])->name('order.complete');
+
 
 
 //注文履歴

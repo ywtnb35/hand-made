@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\OrderItem;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class OrderController extends Controller
 {
@@ -72,6 +73,7 @@ class OrderController extends Controller
         //注文情報をorders テーブルに登録
         $order = Order::create([
             'user_id' => Auth::check() ? Auth::id() : null, //ログインしていればユーザーIDを保存
+            'order_number' => strtoupper(uniqid('ORD-')),
             'name' => $input['name'],   //フォームからの名前
             'email' => $input['email'],  //メール
             'zipcode' => $input['zipcode'],
@@ -94,7 +96,7 @@ class OrderController extends Controller
         session()->forget(['cart','cart_total','order_input']);
 
         //注文完了ページへリダイレクト
-        return redirect()->route('order.complete',['order_id' => $order->id]);
+        return redirect()->route('order.complete',['order_id' => $order->order_number]);
     }
 
     //入力内容修正のリンク
@@ -106,4 +108,11 @@ class OrderController extends Controller
         }
         return redirect()->route('order.form');
     }
+
+    //注文完了ページ
+    public function complete($order_id)
+    {
+        return view('order.complete', compact('order_id'));
+    }
+
 }
