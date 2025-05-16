@@ -89,6 +89,24 @@ a {
     background-color: #555;
 }
 
+/* ボタンエリア全体を中央に・横並びに */
+.confirm-button-group {
+    display: flex;
+    justify-content: center;
+    gap: 16px; /* ボタン間の余白 */
+    margin-top: 30px;
+    flex-wrap: wrap; /* レスポンシブ対応 */
+}
+
+/* ボタンの共通調整（任意） */
+.confirm-button-group .btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 6px;
+    min-width: 180px;
+    text-align: center;
+    display: inline-block;
+}
 
 @media screen and (max-width: 768px) {
     .order-confirm-container {

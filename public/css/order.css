@@ -192,6 +192,12 @@
     background-color: #0056b3;
 }
 
+.order-number {
+    font-size: 18px;
+    color: #333;
+    margin: 20px 0;
+}
+
 
 @media screen and (max-width: 768px) {
     /* 共通：コンテナ調整 */

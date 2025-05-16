@@ -40,19 +40,19 @@
         <!-- 郵便番号入力 -->
         <div class="form-group">
             <label for="zipcode">郵便番号</label>
-            <input type="text" name="zipcode" id="zipcode" required pattern="\d{7}" placeholder="例: 1000001">
+            <input type="text" name="zipcode" id="zipcode" value="{{ old('zipcode') }}" required pattern="\d{7}" placeholder="例: 1000001">
         </div>
 
         <!-- 住所入力（自動補完される） -->
         <div class="form-group">
             <label for="address">市区町村</label>
-            <input type="text" name="address" id="address" required>
+            <input type="text" name="address" id="address" value="{{ old('address') }}" required>
         </div>
 
         <!--番地-->
         <div class="form-group">
             <label for="address_detail">番地</label>
-            <input type="text" name="address_detail" id="address_detail" required>
+            <input type="text" name="address_detail" id="address_detail" value="{{ old('address_detail') }}" required>
         </div>
 
 

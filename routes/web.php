@@ -46,14 +46,17 @@ Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
 
 //注文確認ページ
 Route::post('/order/confirm',[OrderController::class, 'confirm'])->name('order.confirm');
+Route::get('/order/back',[OrderController::class, 'backToForm'])->name('order.back');
 
 // 注文処理
 Route::get('/order/entry', function () { return view('order.entry_select');})->name('order.entry');
 Route::get('/order/form' , [OrderController::class,'form'])->name('order.form');
 Route::post('/order', [OrderController::class, 'store'])->name('order.store');
-Route::get('/order/complete', function () {
-    return view('order.complete');
+Route::get('/order/complete', function (\Illuminate\Http\Request $request) {
+    $orderId = $request->order_id;
+    return view('order.complete', ['order_id' => $orderId]);
 })->name('order.complete');
+
 
 //注文履歴
 // Route::middleware('auth')->group(function() {

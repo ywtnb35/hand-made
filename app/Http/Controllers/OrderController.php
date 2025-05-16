@@ -94,6 +94,16 @@ class OrderController extends Controller
         session()->forget(['cart','cart_total','order_input']);
 
         //注文完了ページへリダイレクト
-        return redirect()->route('order.complete');
+        return redirect()->route('order.complete',['order_id' => $order->id]);
+    }
+
+    //入力内容修正のリンク
+    public function backToForm()
+    {
+        //セッションに保存していた入力内容をold()に復元する
+        if(session()-> has('order_input')) {
+            session()->flashInput(session('order_input'));
+        }
+        return redirect()->route('order.form');
     }
 }
