@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
+use App\Http\Controllers\Admin\salesController;
 use Illuminate\http\Request;
 
 // トップページ
@@ -79,6 +80,10 @@ Route::prefix('admin/orders')->group(function () {
     Route::get('{id}/edit',[AdminOrderController::class,'edit'])->name('admin.orders.edit');
     Route::put('{id}/update',[AdminOrderController::class,'update'])->name('admin.orders.update');
 });
+
+
+Route::get('/admin/sales', [SalesController::class, 'index'])->name('admin.sales.index');
+
 
 // 認証関連ルート（Breezeで生成されたもの）
 require __DIR__.'/auth.php';
