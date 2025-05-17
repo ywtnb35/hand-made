@@ -28,6 +28,7 @@
                     <span id="quantity-display">1</span>
                     <button type="button" id="quantity-plus">+</button>
                 </div>
+
                 @auth
                     @if (Auth::user()->favorites->contains($product->id))
                         <!-- 解除ボタン -->
@@ -43,22 +44,27 @@
                             <button type="submit">♡ お気に入り</button>
                         </form>
                     @endif
-            @endauth
-
+                @endauth
             </div>
 
-            <!--カートに追加するフォームpost送信-->
             <form action="{{ route('cart.add') }}" method="POST">
                 @csrf
                 <input type="hidden" name="product_id" value="{{ $product->id }}">
                 <input type="hidden" name="quantity" id="hidden-quantity" value="1">
 
-                <button type="submit" class="add-to-cart">カートに追加する</button>
+                <button type="submit" class="add-to-cart"
+                    @if ($product->stock <= 0) disabled style="background-color: #ccc; cursor: not-allowed;" @endif>
+                    カートに追加する
+                </button>
             </form>
+
+            @if ($product->stock <= 0)
+                <p style="color: red; font-weight: bold;">在庫切れ</p>
+            @endif
 
             <div class="product-description">
                 <h3>商品詳細</h3>
-                <p>{{ $product->description}}</p>
+                <p>{{ $product->description }}</p>
             </div>
 
             <div class="accordion">

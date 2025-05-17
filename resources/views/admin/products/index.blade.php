@@ -21,6 +21,7 @@
                     <th>価格</th>
                     <th>画像</th>
                     <th>カテゴリ</th>
+                    <th>在庫数</th>
                     <th>商品紹介</th>
                     <th>操作</th>
                 </tr>
@@ -34,6 +35,7 @@
                     <td>¥{{ number_format($product->price) }}</td>
                     <td><img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" style="width: 80px;"></td>
                     <td>{{ ucfirst($product->category) }}</td>
+                    <td>{{ $product->stock }}</td>
                     <td>{{ $product->description }}</td>
                     <!--編集・削除の操作欄-->
                     <td>

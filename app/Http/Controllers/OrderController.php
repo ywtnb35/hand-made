@@ -70,6 +70,14 @@ class OrderController extends Controller
             return redirect()->route('order.form')->with('error','カートが空です。');
         }
 
+        //ここで在庫チェック
+        foreach ($cart as $productId => $item) {
+            $product = \App\Models\Product::find($productId);
+
+            if (!$product || $product->stock < $item['quantity']) {
+            return redirect()->route('order.form')->with('error', "{$product->name} の在庫が足りません。");
+        }
+        }
         //注文情報をorders テーブルに登録
         $order = Order::create([
             'user_id' => Auth::check() ? Auth::id() : null, //ログインしていればユーザーIDを保存
@@ -86,6 +94,10 @@ class OrderController extends Controller
 
         //セッションからカート情報を取り出して、注文商品の明細を登録
         foreach ($cart as $productId => $item) {
+            $product = \App\Models\Product::find($productId);
+
+            $product->decrement('stock' ,$item['quantity']);
+
             $order->items()->create([       //items()はOrderモデルのリレーションを通じてOrderItemを作成
                 'product_id' => $productId,  //商品ID
                 'quantity' => $item['quantity'],  //数量

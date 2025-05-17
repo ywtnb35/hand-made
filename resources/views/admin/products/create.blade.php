@@ -44,6 +44,12 @@
             <label for="description">商品紹介</label>
             <textarea name="description" id="description" class="form-control" rows="4">{{ old('description') }}</textarea>
 
+        <div class="form-group">
+            <label for="stock">在庫数</label>
+            <input type="number" name="stock" class="form-control" value="{{ old('stock', $product->stock ) }}">
+        </div>
+
+
         <!--カテゴリ選択(セレクトボックス)-->
         <div class="form-group">
             <label for="category">カテゴリ</label>

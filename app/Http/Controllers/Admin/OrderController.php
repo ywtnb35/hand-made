@@ -35,4 +35,5 @@ class OrderController extends Controller
 
         return redirect()->route('admin.orders.index')->with('success','ステータスを更新しました。');
     }
+
 }

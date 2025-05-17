@@ -29,6 +29,12 @@
         </div>
 
         <div class="form-group">
+            <label for="stock">在庫数</label>
+            <input type="number" name="stock" class="form-control" value="{{ old('stock', $product->stock ) }}">
+        </div>
+
+
+        <div class="form-group">
             <label for="category">カテゴリ</label>
             <select name="category" class="form-control">
                 <option value="drink" {{ $product->category == 'drink' ? 'selected' : '' }}>飲み物</option>

@@ -40,6 +40,7 @@ class ProductController extends Controller
             'category' => 'required',   //カテゴリ:必須
             'images.*'=> 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',  //画像:形式とサイズ制限
             'description' => 'nullable|string',
+            'stock' => 'required|integer|min:0',
         ]);
 
         //保存処理 まずは商品本体情報だけ保存。画像はまだ。
@@ -98,11 +99,12 @@ class ProductController extends Controller
         'price' => 'required|numeric',
         'image' => 'required|string',
         'category' => 'required',
+        'stock' => 'required|integer|min:0',
         ]);
 
         //商品を取得して更新
         $product = Product::findOrFail($id);
-        $product->update($request->only(['name','price','image','category']));
+        $product->update($request->only(['name','price','image','category','stock']));
 
         return redirect()->route('admin.products.index')->with('success','商品を更新しました。');
     }
