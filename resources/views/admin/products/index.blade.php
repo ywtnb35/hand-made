@@ -32,8 +32,7 @@
                     <td>{{ $product->id }}</td>
                     <td>{{ $product->name }}</td>
                     <td>¥{{ number_format($product->price) }}</td>
-                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" style="width: 80px;">
-                    </td>
+                    <td><img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" style="width: 80px;"></td>
                     <td>{{ ucfirst($product->category) }}</td>
                     <td>{{ $product->description }}</td>
                     <!--編集・削除の操作欄-->

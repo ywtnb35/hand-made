@@ -23,48 +23,49 @@ body {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* ラッパー中央寄せ */
+.admin-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
-/* ヘッダー強化バージョン */
+/* ヘッダー全体 */
 .admin-header {
     text-align: center;
-    margin-bottom: 50px;
-    background-color: #ffffff;
-    padding: 30px 20px;
+    padding-bottom: 20px;
     border-bottom: 3px solid #007bff;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    border-radius: 10px;
-    width: 100%;
-    max-width: 1000px;
+    margin-bottom: 30px;
 }
 
-/* タイトル文字をさらに大きく */
+/* タイトル */
 .admin-title {
-    font-size: 36px;
-    font-weight: 800;
-    margin-bottom: 20px;
-    color: #333;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
-/* ナビゲーションリンクを大きく・強調 */
+/* ナビゲーションメニュー */
 .admin-nav {
     display: flex;
     justify-content: center;
     gap: 30px;
-    flex-wrap: wrap;
 }
 
 .admin-nav a {
     text-decoration: none;
-    color: #007bff;
     font-weight: bold;
-    font-size: 18px;
-    transition: 0.2s ease;
+    color: #007bff;
+    padding: 6px 12px;
+    transition: border-bottom 0.3s;
 }
 
 .admin-nav a:hover {
-    text-decoration: underline;
-    color: #0056b3;
+    border-bottom: 2px solid #007bff;
 }
+
+
+
 
 
 /* タイトル */

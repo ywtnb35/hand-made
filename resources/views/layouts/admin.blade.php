@@ -13,6 +13,7 @@
             <nav class="admin-nav">
                 <a href="{{ route('admin.products.index') }}">商品一覧</a>
                 <a href="{{ route('admin.products.create') }}">商品登録</a>
+                <a href="{{ route('admin.orders.index') }}">注文一覧</a>
             </nav>
         </header>
 
