@@ -49,6 +49,14 @@
             <input type="number" name="stock" class="form-control" value="{{ old('stock', $product->stock ) }}">
         </div>
 
+        <div class="form-group">
+            <label>公開設定</label>
+            <select name="is_published" class="form-control">
+                <option value="1" {{ old('is_published', $product->is_published ?? 1) == 1 ? 'selected' : '' }}>公開</option>
+                <option value="0" {{ old('is_published', $product->is_published ?? 1) == 0 ? 'selected' : '' }}>非公開</option>
+            </select>
+        </div>
+
 
         <!--カテゴリ選択(セレクトボックス)-->
         <div class="form-group">

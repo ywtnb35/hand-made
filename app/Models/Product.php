@@ -13,6 +13,7 @@ class Product extends Model  //商品モデル:productsテーブルと自動的�
         'category', //商品カテゴリ
         'description', //商品説明
         'stock',
+        'is_published',
     ];
 
     public function images()  //商品と商品画像(ProductImage)のリレーション(1対多)

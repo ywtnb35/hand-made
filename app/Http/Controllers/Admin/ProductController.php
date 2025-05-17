@@ -100,11 +100,12 @@ class ProductController extends Controller
         'image' => 'required|string',
         'category' => 'required',
         'stock' => 'required|integer|min:0',
+        'is_published' => 'required|boolean',
         ]);
 
         //商品を取得して更新
         $product = Product::findOrFail($id);
-        $product->update($request->only(['name','price','image','category','stock']));
+        $product->update($request->only(['name','price','image','category','stock','is_published']));
 
         return redirect()->route('admin.products.index')->with('success','商品を更新しました。');
     }

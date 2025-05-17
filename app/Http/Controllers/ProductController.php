@@ -17,9 +17,9 @@ class ProductController extends Controller
 
         //商品一覧を取得
         if($category) {
-            $products = Product::where('category',$category)->get();  //productsテーブルから[category]が指定値と一致する商品を取得
+            $products = Product::where('category',$category)->where('is_published',true)->get();  //productsテーブルから[category]が指定値と一致する商品を取得
         } else {  
-            $products = Product::all();  //カテゴリが未指定なら、productsテーブルからすべての商品を取得
+            $products = Product::where('is_published', true)->get();  //カテゴリが未指定なら、productsテーブルからすべての商品を取得
         }
 
         //商品一覧に含まれるすべてのカテゴリ名を取得（セレクトボックス表示用）
