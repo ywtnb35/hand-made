@@ -198,6 +198,35 @@
     margin: 20px 0;
 }
 
+/* ===========================
+   注文ステータス表示用CSS
+   =========================== */
+
+.status {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+/* 未発送（赤） */
+.status-pending {
+    background-color: #dc3545; /* Bootstrapのdanger色 */
+}
+
+/* 発送済み（緑） */
+.status-shipped {
+    background-color: #28a745; /* Bootstrapのsuccess色 */
+}
+
+/* キャンセル（グレー） */
+.status-cancelled {
+    background-color: #6c757d; /* Bootstrapのsecondary色 */
+}
+
 
 @media screen and (max-width: 768px) {
     /* 共通：コンテナ調整 */

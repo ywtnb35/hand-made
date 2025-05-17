@@ -12,7 +12,14 @@
     @forelse ($orders as $order)
         <div class="order-box">
             <div class="order-header">
-                <span class="status">配送完了</span>
+            <span class="status 
+                {{ $order->status === '未発送' ? 'status-pending' : '' }}
+                {{ $order->status === '発送済み' ? 'status-shipped' : '' }}
+                {{ $order->status === 'キャンセル' ? 'status-cancelled' : '' }}">
+                {{ $order->status }}
+            </span>
+
+
                 <div class="order-meta">
                     <p>注文日：{{ $order->created_at->format('Y.m.d') }}</p>
                     <p>注文番号：{{ $order->id }}</p>

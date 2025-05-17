@@ -9,6 +9,7 @@ use App\Http\Controllers\OrderHistoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use Illuminate\http\Request;
 
 // トップページ
@@ -71,6 +72,12 @@ Route::prefix('admin/products')->group(function() {
     Route::get('/{id}/edit',[AdminProductController::class,'edit'])->name('admin.products.edit');
     Route::put('/{id}/update',[AdminProductController::class,'update'])->name('admin.products.update');
     Route::delete('/{id}/delete',[AdminProductController::class,'destroy'])->name('admin/products.destroy');
+});
+
+Route::prefix('admin/orders')->group(function () {
+    Route::get('/',[AdminOrderController::class,'index'])->name('admin.orders.index');
+    Route::get('{id}/edit',[AdminOrderController::class,'edit'])->name('admin.orders.edit');
+    Route::put('{id}/update',[AdminOrderController::class,'update'])->name('admin.orders.update');
 });
 
 // 認証関連ルート（Breezeで生成されたもの）

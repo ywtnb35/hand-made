@@ -1,0 +1,112 @@
+/* =============================
+   注文一覧 表形式（PC用）
+============================= */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 30px;
+}
+
+.admin-orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.admin-orders-table th,
+.admin-orders-table td {
+    padding: 16px 20px;
+    border: 1px solid #ddd;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.admin-orders-table th {
+    background-color: #f0e9f3;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.admin-orders-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.badge-未発送 {
+  color: #fff;
+  background-color: #f66;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+.badge-発送済み {
+  color: #fff;
+  background-color: #4caf50;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+.badge-キャンセル {
+  color: #fff;
+  background-color: #999;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.badge-danger {
+    background-color: #e74c3c;
+}
+
+.badge-success {
+    background-color: #2ecc71;
+}
+
+.badge-secondary {
+    background-color: #95a5a6;
+}
+
+.badge-light {
+    background-color: #bdc3c7;
+    color: #2c3e50;
+}
+
+
+
+/* =============================
+   注文一覧 カード形式（スマホ用）
+============================= */
+.order-cards {
+    display: none;
+}
+
+.order-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* =============================
+   レスポンシブ切り替え
+============================= */
+@media screen and (max-width: 768px) {
+    .table-wrapper {
+        display: none;
+    }
+
+    .order-cards {
+        display: block;
+    }
+}

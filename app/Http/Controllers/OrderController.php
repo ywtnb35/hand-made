@@ -80,6 +80,7 @@ class OrderController extends Controller
             'address' => $input['address'],  //住所
             'address_detail' => $input['address_detail'],
             'total_price' => $total,  //セッションに入っていた合計金額
+            'status' => '未発送',
         ]);
 
 
