@@ -10,7 +10,7 @@
             <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">ホーム</a>
             <a href="{{ route('products.index') }}" class="{{ request()->routeIs('products.index') ? 'active' : '' }}">ショップ</a>
             <a href="#">About</a>
-            <a href="#">お問い合わせ</a>
+            <a href="{{ route('contact.form') }}" class="{{ request()->routeIs('contact.form') ? 'active' : '' }}">お問い合わせ</a>
         </nav>
 
         <div class="user-icons">

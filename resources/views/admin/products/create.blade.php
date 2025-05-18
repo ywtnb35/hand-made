@@ -46,7 +46,7 @@
 
         <div class="form-group">
             <label for="stock">在庫数</label>
-            <input type="number" name="stock" class="form-control" value="{{ old('stock', $product->stock ) }}">
+            <input type="number" name="stock" class="form-control" value="{{ old('stock') }}">
         </div>
 
         <div class="form-group">

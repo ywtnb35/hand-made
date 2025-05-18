@@ -30,7 +30,7 @@ class AuthenticatedSessionController extends Controller
             'password' => 'required',
         ]);
 
-        if(! Auth::attempt($request->only('email','password'),$request->filled('remember'))) {
+        if (! Auth::attempt($request->only('email', 'password'), $request->filled('remember'))) {
             return back()->withErrors([
                 'email' => 'メールまたはパスワードが正しくありません。',
             ]);
@@ -38,13 +38,20 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        //カートに商品があればカートページへ、それ以外がマイページへ
-        if(session()->has('cart') && count(session('cart')) > 0) {
-            return redirect()->route('cart.show');
-        } else {
-            return redirect()->route('user.mypage');
+        // ▼ ユーザーのroleで遷移先を切り替え
+        if (Auth::user()->role === 'admin') {
+            return redirect()->route('admin.products.index');
         }
+
+        // ▼ カートに商品がある場合はカートへ
+        if (session()->has('cart') && count(session('cart')) > 0) {
+            return redirect()->route('cart.show');
+        }
+
+        // ▼ 通常のマイページへ
+        return redirect()->route('user.mypage');
     }
+
 
     /**
      * Destroy an authenticated session.

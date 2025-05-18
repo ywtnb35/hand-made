@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Illiminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 
 class AdminMiddleware
 {
@@ -16,6 +16,7 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+
         //未ログインならログインページへ
         if(!Auth::check()) {
             return redirect()->route('login');
