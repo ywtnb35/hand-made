@@ -1,11 +1,11 @@
 <footer class="site-footer">
     <div class="footer-grid">
         <div>
-            <h4>ショップ</h4>
             <ul>
-                <li>食べ物・飲料</li>
-                <li>木工品</li>
-                <li>印鑑</li>
+                <li><a href="{{ route('products.index') }}">ショップ</a></li>
+                <li><a href="{{ route('products.index', ['category' => 'drink']) }}">食べ物・飲料</a></li>
+                <li><a href="{{ route('products.index', ['category' => 'wood']) }}">木工品</a></li>
+                <li><a href="{{ route('products.index', ['category' => 'stamp']) }}">印鑑</a></li>
             </ul>
         </div>
         
