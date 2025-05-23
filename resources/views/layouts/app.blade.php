@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 <link rel="stylesheet" href="{{ asset('css/order-confirm.css') }}">
 <link rel="stylesheet" href="{{ asset('css/admin-order.css') }}">
+<link rel="stylesheet" href="{{ asset('css/admin-order-history') }}">
 <link rel="stylesheet" href="{{ asset('css/sales.css') }}">
 <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
 

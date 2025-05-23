@@ -32,7 +32,7 @@
 .admin-orders-table tbody tr:hover {
     background-color: #f9f9f9;
 }
-
+/* 
 .badge-未発送 {
   color: #fff;
   background-color: #f66;
@@ -50,7 +50,7 @@
   background-color: #999;
   padding: 4px 10px;
   border-radius: 8px;
-}
+} */
 
 .badge {
     display: inline-block;
@@ -61,12 +61,13 @@
     color: #fff;
 }
 
-.badge-danger {
+ .badge-danger {
     background-color: #e74c3c;
 }
 
 .badge-success {
-    background-color: #2ecc71;
+    background-color: #28a745;
+    color: #fff;
 }
 
 .badge-secondary {
@@ -74,9 +75,8 @@
 }
 
 .badge-light {
-    background-color: #bdc3c7;
-    color: #2c3e50;
-}
+    background-color: blue;
+} 
 
 
 

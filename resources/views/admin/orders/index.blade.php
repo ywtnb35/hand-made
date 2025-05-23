@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/admin-order.css') }}">
+
 
 <div class="container">
     <h2>注文一覧（管理者）</h2>
@@ -37,14 +37,21 @@
                     <td>{{ $order->created_at->format('Y-m-d H:i') }}</td>
                     <td> 
                         @php
+                            $statusLabel = match($order->status){
+                                'pending' => '未発送',
+                                'shipped' => '発送済み',
+                                'cancelled' => 'キャンセル済み',
+                                default => '不明',
+                            };
+
                             $badgeClass = match($order->status) {
-                                '未発送' => 'badge-danger',
-                                '発送済み' => 'badge-success',
-                                'キャンセル' => 'badge-secondary',
+                                'pending' => 'badge-danger',
+                                'shipped' => 'badge-success',
+                                'cancelled' => 'badge-secondary',
                                 default => 'badge-light',
                             };
                         @endphp
-                        <span class="badge {{ $badgeClass }}">{{ $order->status }}</span><br>
+                        <span class="badge {{ $badgeClass }}">{{ $statusLabel }}</span><br>
                         <a href="{{ route('admin.orders.edit', $order->id) }}" class="btn btn-sm btn-outline-primary mt-1">編集</a>
                     </td>
 
@@ -65,6 +72,17 @@
             <div><strong>メール：</strong>{{ $order->email }}</div>
             <div><strong>金額：</strong>{{ number_format($order->total_price) }}円</div>
             <div><strong>注文日時：</strong>{{ $order->created_at->format('Y-m-d H:i') }}</div>
+            <div><strong>ステータス:</strong>
+                @php 
+                    $label = match($order->status){
+                        'pending' => '未発送',
+                        'shipped' => '発送済み',
+                        'cancelled' => 'キャンセル済み',
+                        default => '不明',
+                    };
+                @endphp
+                {{ $label }}
+            </div>
         </div>
         @endforeach
     </div>

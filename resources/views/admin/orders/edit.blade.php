@@ -11,9 +11,9 @@
         <div class="mb-3">
             <label for="status" class="form-label">ステータス</label>
             <select name="status" id="status" class="form-select">
-                <option value="未発送" {{ $order->status === '未発送' ? 'selected' : '' }}>未発送</option>
-                <option value="発送済み" {{ $order->status === '発送済み' ? 'selected' : '' }}>発送済み</option>
-                <option value="キャンセル" {{ $order->status === 'キャンセル' ? 'selected' : '' }}>キャンセル</option>
+                <option value="pending" {{ $order->status === 'pending' ? 'selected' : '' }}>未発送</option>
+                <option value="shipped" {{ $order->status === 'shipped' ? 'selected' : '' }}>発送済み</option>
+                <option value="cancelled" {{ $order->status === 'cancelled' ? 'selected' : '' }}>キャンセル済み</option>
             </select>
         </div>
 

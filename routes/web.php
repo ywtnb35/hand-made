@@ -55,7 +55,7 @@ Route::post('/order/confirm', [OrderController::class, 'confirm'])->name('order.
 Route::get('/order/back', [OrderController::class, 'backToForm'])->name('order.back');
 Route::post('/order', [OrderController::class, 'store'])->name('order.store');
 Route::get('/order/complete/{order_id}', [OrderController::class, 'complete'])->name('order.complete');
-
+Route::patch('/orders/{id}/cancel',[OrderController::class,'cancel'])->name('orders.cancel');
 // ▼ お問い合わせフォーム（共通）
 Route::get('/contact', [ContactController::class, 'form'])->name('contact.form');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');

@@ -128,4 +128,32 @@ class OrderController extends Controller
         return view('order.complete', compact('order_id'));
     }
 
+
+
+    //注文キャンセル
+    public function cancel($id)
+    {
+        //該当の注文をIDから取得(存在しない場合は404エラー)
+        $order = Order::findOrFail($id);
+
+        //ログイン中のユーザーとこの注文を作成したユーザーが一致するか確認
+        if(Auth::id() !== $order->user_id){
+            abort(403,'この注文をキャンセルする権限がありません');
+        }
+
+        //すでに処理が進んだ注文（発送済み)はキャンセルできない
+        //pending（未処理）状態以外はキャンセル不可
+        if($order->status !== 'pending'){
+            return redirect()->route('orders.history')->with('error','この注文はキャンセルできません。');
+        }
+
+        //キャンセル処理の実行
+        //ステータスを'cancelled'に変更して保存
+        $order->status = 'cancelled';
+        $order->save();
+
+        //キャンセル後は注文履歴ページにリダイレクト
+        return redirect()->route('orders.history')->with('success','注文をキャンセルしました。');
+    }
+
 }
