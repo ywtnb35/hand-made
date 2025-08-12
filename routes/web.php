@@ -71,6 +71,8 @@ Route::prefix('admin')->middleware(['auth', AdminMiddleware::class])->group(func
         Route::get('/{id}/edit', [AdminProductController::class, 'edit'])->name('admin.products.edit');
         Route::put('/{id}/update', [AdminProductController::class, 'update'])->name('admin.products.update');
         Route::delete('/{id}/delete', [AdminProductController::class, 'destroy'])->name('admin.products.destroy');
+        Route::post('/{product}/images',[AdminProductController::class,'addImages'])->name('admin.products.images.add');
+        Route::post('/{product}/images/replace',[AdminProductController::class,'replaceImages'])->name('admin.products.images.replace');
     });
 
     // 注文管理

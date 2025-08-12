@@ -85,3 +85,32 @@ button.btn {
 button.btn:hover {
     background-color: #ec971f;
 }
+.admin-main img{ max-width:100%; height:auto; display:block; }
+
+/* ===== ここからプレビュー用のサイズ指定 ===== */
+
+/* 代表画像＋サムネのレイアウト */
+.preview-row{ display:grid; grid-template-columns:280px 1fr; gap:20px; margin-top:8px; }
+
+/* 代表画像はこれで小さく */
+.thumb-lg{
+  width:280px; height:auto; border-radius:8px; border:1px solid #e5e7eb;
+}
+
+/* サムネ一覧 */
+.thumb-grid{ display:grid; grid-template-columns:repeat(auto-fill,120px); gap:12px; }
+.thumb{
+  width:120px; height:auto; border-radius:8px; border:1px solid #e5e7eb;
+}
+.path{ font-size:11px; color:#6b7280; margin-top:4px; word-break:break-all; }
+
+/* 新規選択プレビュー */
+.new-previews{ display:grid; grid-template-columns:repeat(auto-fill,120px); gap:12px; margin-top:10px; }
+.new-previews img{ width:120px; height:auto; border:1px solid #e5e7eb; border-radius:8px; }
+
+/* スマホ */
+@media (max-width:768px){
+  .admin-main{ padding:20px; }
+  .preview-row{ grid-template-columns:1fr; }
+  .thumb-lg{ width:100%; }
+}

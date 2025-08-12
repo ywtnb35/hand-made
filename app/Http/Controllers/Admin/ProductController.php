@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\ProductImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -75,14 +76,66 @@ class ProductController extends Controller
 
     }
 
-    //商品削除
-    public function destroy($id)
+    public function replaceImages(Request $request, Product $product)
     {
-        $product = Product::findOrFail($id);  //対象商品取得
-        $product->delete();  //削除
+        $validated = $request->validate([
+            'images' => ['required','array','min:1'],
+            'images.*' => ['image','mimes:jpeg,png,jpg,gif,webp,svg','max:4096'],
+        ]);
 
-        return redirect()->route('admin.products.index')->with('success','商品を削除しました。');
+        foreach ($product->images as $img){
+            Storage::disk('public')->delete($img->filename);
+            $img->delete();
+        }
+
+        if($product->image){
+            Storage::disk('public')->delete($product->image);
+            $product->image = null;
+            $product->save();
+        }
+
+        $firstPath = null;
+        foreach($request->file('images') as $file) {
+            $path = $file->store('products/'.$product->id,'public');
+            $product->images()->create(['filename' => $path]);
+            
+            if($firstPath === null){
+                $firstPath = $path;
+            }
+        }
+
+        if ($firstPath) {
+            $product->update(['image' => $firstPath]);
+        }
+
+        return back()->with('success','画像を入れ替えました');
     }
+
+    public function addImages(Request $request, Product $product)
+    {
+        $validated = $request->validate([
+            'images'   => ['required','array','min:1'],
+            'images.*' => ['image','mimes:jpeg,png,jpg,gif,webp,svg','max:4096'],
+            'set_primary' => ['nullable','boolean'],
+        ]);
+
+        $firstPath = null;
+        $count = 0;
+
+        foreach ($request->file('images') as $file) {
+            $path = $file->store('products/'.$product->id, 'public');
+            $product->images()->create(['filename' => $path]);
+            if ($firstPath === null) { $firstPath = $path; }
+            $count++;
+        }
+
+        if ($request->boolean('set_primary') && $firstPath) {
+            $product->update(['image' => $firstPath]);
+        }
+
+        return back()->with('success', "{$count}枚の画像を追加しました。");
+    }
+
 
     //編集画面表示
     public function edit($id)
@@ -97,7 +150,7 @@ class ProductController extends Controller
         $request->validate([
         'name' => 'required|string|max:255',
         'price' => 'required|numeric',
-        'image' => 'required|string',
+        'image' => 'nullable|string',
         'category' => 'required',
         'stock' => 'required|integer|min:0',
         'is_published' => 'required|boolean',
