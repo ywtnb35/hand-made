@@ -109,7 +109,7 @@ class OrderController extends Controller
         session()->forget(['cart','cart_total','order_input']);
 
         //注文完了ページへリダイレクト
-        return redirect()->route('order.complete',['order_id' => $order->order_number]);
+        return redirect()->route('order.complete',['order_id' => $order->id]);
     }
 
     //入力内容修正のリンク
@@ -125,7 +125,9 @@ class OrderController extends Controller
     //注文完了ページ
     public function complete($order_id)
     {
-        return view('order.complete', compact('order_id'));
+        return view('order.complete',[
+            'order' => $order,
+        ]);
     }
 
 

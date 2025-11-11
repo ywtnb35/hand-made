@@ -13,12 +13,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(OrderSeeder::class);
-
         \App\Models\User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
             'password' => bcrypt('password123'),
+        ]);
+
+        $this->call([
+            ProductSeeder::class,
+            OrderSeeder::class,
         ]);
     }
 }

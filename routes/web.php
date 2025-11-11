@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\SalesController;
 use App\Http\Middleware\AdminMiddleware;
+use Illuminate\Support\Facades\Storage;
 
 // ▼ トップページ
 Route::get('/', function () {
@@ -86,6 +87,14 @@ Route::prefix('admin')->middleware(['auth', AdminMiddleware::class])->group(func
     Route::get('/sales', [SalesController::class, 'index'])->name('admin.sales.index');
     Route::get('/contacts', [ContactController::class, 'index'])->name('admin.contacts.index');
 });
+
+// ▼ デバッグ用：ストレージ内の画像を直接確認する一時ルート
+
+Route::get('/_debug-img', function () {
+    $path = 'products/6816cb0b10e045.jpg'; // 実際にあるファイル名に合わせてもOK
+    return response()->file(Storage::disk('public')->path($path));
+});
+
 
 // ▼ Breezeで生成された認証ルート（ログイン・登録など）
 require __DIR__ . '/auth.php';
